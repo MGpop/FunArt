@@ -1,0 +1,162 @@
+/* ==========================================================
+   PORTFOLIO PAGE
+   ========================================================== */
+
+.portfolio-page {
+    padding:
+        0
+        3%;
+}
+
+
+.portfolio-section {
+    display: flex;
+
+    padding:
+        40px
+        0;
+
+    scroll-margin-top: 60px;
+}
+
+
+/* ==========================================================
+   SECTION POSITIONING
+   ========================================================== */
+
+.section-left {
+    justify-content: flex-start;
+}
+
+
+.section-right {
+    justify-content: flex-end;
+}
+
+
+.section-content {
+    width: min(
+        100%,
+        860px
+    );
+}
+
+
+.section-left .section-content {
+    text-align: left;
+}
+
+
+.section-right .section-content {
+    margin-left: auto;
+
+    text-align: right;
+}
+
+
+/* ==========================================================
+   SECTION TEXT
+   ========================================================== */
+
+.section-content h1,
+.section-content h2 {
+    margin:
+        0
+        0
+        16px;
+
+    color: var(--color-wine);
+
+    font-size: clamp(
+        1.8rem,
+        2.8vw,
+        2.7rem
+    );
+
+    line-height: 1.15;
+}
+
+
+.section-content p {
+    max-width: 68ch;
+
+    margin: 0;
+
+    font-size: 1.05rem;
+    line-height: 1.65;
+
+    text-wrap: pretty;
+}
+
+
+.section-content p + p {
+    margin-top: 10px;
+}
+
+
+.section-left .section-content p {
+    margin-right: auto;
+}
+
+
+.section-right .section-content p {
+    margin-left: auto;
+}
+
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
+
+.section-content a {
+    color: var(--color-berry);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+.section-content a:hover,
+.section-content a:focus-visible {
+    color: var(--color-raspberry);
+}
+
+
+/* ==========================================================
+   TABLET / MOBILE
+   ========================================================== */
+
+@media
+    (max-width: 700px) {
+
+    .portfolio-page {
+        padding:
+            0
+            20px;
+    }
+
+
+    .portfolio-section {
+        justify-content: flex-start;
+        padding:
+            32px
+            0;
+    }
+
+
+    .section-content,
+    .section-right .section-content {
+        width: 100%;
+        margin-left: 0;
+        text-align: left;
+    }
+
+
+    .section-content p {
+        max-width: none;
+    }
+
+
+    .section-right .section-content p {
+        margin-left: 0;
+    }
+}

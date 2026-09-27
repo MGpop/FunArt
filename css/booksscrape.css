@@ -1,0 +1,405 @@
+/* =========================
+   Book$$crape palette
+   ========================= */
+
+:root {
+    --color-darkest: #00063e;
+    --color-dark: #000f94;
+    --color-accent: #3048ce;
+    --color-light: #99a6ec;
+    --color-lightest: #b9c3ff;
+}
+
+
+/* =========================
+   Base
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--color-dark);
+    color: var(--color-lightest);
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+a {
+    color: inherit;
+}
+
+
+/* =========================
+   Header
+   ========================= */
+
+.booksscrape-header {
+    padding: 30px 3%;
+    background: var(--color-darkest);
+}
+
+.booksscrape-header h1 {
+    margin: 0;
+
+    position: relative;
+    z-index: 1;
+
+    color: var(--color-lightest);
+
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 1;
+
+    text-shadow:
+        2px 2px 0 var(--color-darkest),
+        3px 3px 4px var(--color-darkest);
+}
+
+.booksscrape-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.booksscrape-header-animation {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   Pseudo navigation
+   ========================= */
+
+.booksscrape-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    background: var(--color-accent);
+}
+
+.booksscrape-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 62px;
+    padding: 14px 20px;
+
+    color: var(--color-darkest);
+    background: var(--color-accent);
+
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+
+    transition: background 0.18s ease, color 0.18s ease;
+}
+
+.booksscrape-nav-link + .booksscrape-nav-link {
+    border-left: 4px solid var(--color-darkest);
+}
+
+.booksscrape-nav-link:hover,
+.booksscrape-nav-link:focus-visible {
+    background: var(--color-lightest);
+    color: var(--color-darkest);
+}
+
+.booksscrape-nav-link:focus-visible {
+    outline: 3px solid var(--color-lightest);
+    outline-offset: -5px;
+}
+
+
+/* =========================
+   Main layout - desktop
+   ========================= */
+
+.booksscrape-main {
+    flex: 1;
+    width: 100%;
+    padding: 38px 3% 48px;
+}
+
+.booksscrape-content {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(360px, 2fr);
+    column-gap: clamp(40px, 7vw, 110px);
+    row-gap: 30px;
+    align-items: start;
+}
+
+/*
+   Pe desktop, textele sunt fortate in coloana stanga,
+   iar imaginile in coloana dreapta. Fiecare coloana
+   isi pastreaza ordinea din HTML.
+*/
+.booksscrape-text {
+    grid-column: 1;
+    padding: 10px 0 24px;
+}
+
+.booksscrape-media {
+    grid-column: 2;
+    margin: 0 0 2px;
+}
+
+/* Plasam continutul in doua fluxuri verticale independente. */
+.booksscrape-about { grid-row: 1; }
+.booksscrape-source { grid-row: 2; }
+.booksscrape-books { grid-row: 3 / span 2; }
+.booksscrape-calculations { grid-row: 5; }
+.booksscrape-stock { grid-row: 6; }
+.booksscrape-recommendations { grid-row: 7; }
+.booksscrape-requirements { grid-row: 8; }
+.booksscrape-release { grid-row: 9; }
+
+.booksscrape-media-main { grid-row: 1; }
+.booksscrape-media-source { grid-row: 2; }
+.booksscrape-media-books { grid-row: 3; }
+.booksscrape-media-book { grid-row: 4; }
+.booksscrape-media-calculations { grid-row: 5; }
+.booksscrape-media-stock { grid-row: 6; }
+.booksscrape-media-recommendations { grid-row: 7; }
+
+
+/* =========================
+   Text
+   ========================= */
+
+.booksscrape-text h2 {
+    margin: 0 0 12px;
+    color: var(--color-lightest);
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    line-height: 1.2;
+}
+
+.booksscrape-text p {
+    max-width: 65ch;
+    margin: 0 0 12px;
+    color: var(--color-light);
+    font-size: 1.03rem;
+    line-height: 1.65;
+}
+
+.booksscrape-text p:last-child {
+    margin-bottom: 0;
+}
+
+.booksscrape-tagline {
+    color: var(--color-lightest) !important;
+    font-style: italic;
+}
+
+.booksscrape-text a,
+.booksscrape-media a {
+    color: var(--color-lightest);
+    text-underline-offset: 3px;
+}
+
+.booksscrape-text a:hover,
+.booksscrape-text a:focus-visible,
+.booksscrape-media a:hover,
+.booksscrape-media a:focus-visible {
+    color: #ffffff;
+}
+
+.booksscrape-requirements ul {
+    margin: 0 0 14px;
+    padding-left: 22px;
+    color: var(--color-lightest);
+    font-size: 1.03rem;
+    line-height: 1.7;
+}
+
+.booksscrape-release p {
+    color: var(--color-lightest);
+}
+
+.booksscrape-source-link,
+.booksscrape-github-link,
+.booksscrape-data-link {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* =========================
+   Screenshots
+   ========================= */
+
+.booksscrape-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 4px solid var(--color-darkest);
+}
+
+.booksscrape-media figcaption {
+    margin-top: 7px;
+    color: var(--color-light);
+    font-size: 0.86rem;
+    line-height: 1.4;
+}
+
+
+/* =========================
+   Footer
+   ========================= */
+
+.booksscrape-footer {
+    padding: 24px 3%;
+    background: var(--color-darkest);
+    color: var(--color-light);
+}
+
+.booksscrape-footer p {
+    margin: 4px 0;
+}
+
+.booksscrape-footer-note {
+    margin-top: 14px !important;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+
+/* =========================
+   Image lightbox
+   ========================= */
+
+.booksscrape-media img {
+    cursor: zoom-in;
+}
+
+.booksscrape-lightbox {
+    position: fixed;
+    width: fit-content;
+    max-width: 94vw;
+    max-height: 94vh;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+.booksscrape-lightbox::backdrop {
+    background: rgb(0 0 0 / 85%);
+}
+
+.booksscrape-lightbox img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 94vw;
+    max-height: 94vh;
+    object-fit: contain;
+    cursor: default;
+}
+
+
+/* =========================
+   Mobile / tablet
+   ========================= */
+
+@media (max-width: 760px) {
+
+    .booksscrape-header {
+        padding: 24px 20px;
+    }
+
+    .booksscrape-header h1 {
+        font-size: clamp(2.6rem, 13vw, 4.3rem);
+    }
+
+    /* Pseudo-nav-ul ramane stanga / dreapta si pe telefon. */
+    .booksscrape-nav {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .booksscrape-nav-link {
+        min-height: 56px;
+        padding: 12px 8px;
+        font-size: 0.92rem;
+    }
+
+    .booksscrape-nav-link + .booksscrape-nav-link {
+        border-left-width: 3px;
+    }
+
+    .booksscrape-main {
+        padding: 32px 20px 40px;
+    }
+
+    /*
+       Revenim la ordinea naturala din HTML:
+       text -> poza -> text -> poza.
+    */
+    .booksscrape-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .booksscrape-text,
+    .booksscrape-media {
+        width: 100%;
+    }
+
+    .booksscrape-text {
+        padding: 22px 0 16px;
+    }
+
+    .booksscrape-content > .booksscrape-text:first-child {
+        padding-top: 0;
+    }
+
+    .booksscrape-media {
+        margin: 0 0 14px;
+    }
+
+    .booksscrape-media-book {
+        margin-top: 0;
+    }
+
+    .booksscrape-text h2 {
+        font-size: 1.35rem;
+    }
+
+    .booksscrape-text p,
+    .booksscrape-requirements ul {
+        font-size: 1rem;
+    }
+
+    .booksscrape-media img {
+        border-width: 3px;
+    }
+
+    .booksscrape-footer {
+        padding: 22px 20px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .booksscrape-nav-link {
+        font-size: 0.82rem;
+    }
+}

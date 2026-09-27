@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Drawing Planner | FunArt™</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/ui/favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/drawing-helper.css"
+    >
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="brand">
+
+            <img
+                src="images/ui/logo.png"
+                alt="FunArt"
+                class="site-logo"
+            >
+
+        </div>
+
+    </header>
+
+
+    <nav class="main-nav">
+
+        <div class="nav-item home-menu">
+
+            <button
+                class="nav-button home-menu-button"
+                type="button"
+                aria-expanded="false"
+            >
+                Home
+            </button>
+
+
+            <div class="home-dropdown">
+
+                <a href="index.html#home">
+                    Acasă
+                </a>
+
+                <a href="index.html#about">
+                    Despre mine
+                </a>
+
+                <a href="index.html#projects">
+                    Proiecte
+                </a>
+
+                <a href="index.html#contact">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="nav-button"
+            href="match-the-aesthetic.html"
+        >
+            Match the Aesthetic
+        </a>
+
+
+        <a
+            class="nav-button"
+            href="drawing-helper.html"
+            aria-current="page"
+        >
+            Drawing Planner
+        </a>
+
+    </nav>
+
+
+    <main class="page-content drawing-page">
+
+        <header class="drawing-page-header">
+            <h1>Drawing Planner</h1>
+
+            <p>
+                Ai chef să desenezi, dar nu știi de unde să începi?
+                Alege un set de idei sau construiește-ți propria listă,
+                apoi folosește canvas-ul pentru desen.
+            </p>
+        </header>
+
+
+        <div class="drawing-layout">
+
+            <section
+                class="planner-panel"
+                aria-labelledby="planner-title"
+            >
+
+                <h2 id="planner-title">
+                    Drawing prompts
+                </h2>
+
+
+                <div class="preset-controls">
+
+                    <label for="preset-select">
+                        Preset
+                    </label>
+
+                    <select id="preset-select">
+                        <option value="">
+                            Alege un preset
+                        </option>
+
+                        <option value="princess">Princess</option>
+                        <option value="pirates">Pirates</option>
+                        <option value="superhero">Superhero</option>
+                        <option value="concert">Concert</option>
+                        <option value="cartoon">Cartoon Character</option>
+                        <option value="mermaids">Mermaids</option>
+                        <option value="fantasy">Fantasy</option>
+                    </select>
+
+                    <button
+                        id="load-preset-button"
+                        type="button"
+                    >
+                        Load preset
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="task-list"
+                    class="task-list"
+                    aria-live="polite"
+                >
+                    <!-- Task-urile vor fi adăugate din JavaScript. -->
+                </div>
+
+
+                <form
+                    id="add-task-form"
+                    class="add-task-form"
+                >
+
+                    <label
+                        for="new-task-input"
+                        class="visually-hidden"
+                    >
+                        Adaugă un element de desenat
+                    </label>
+
+                    <input
+                        id="new-task-input"
+                        type="text"
+                        placeholder="Adaugă o idee..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        id="add-task-button"
+                        type="submit"
+                    >
+                        Add
+                    </button>
+
+                </form>
+
+
+                <button
+                    id="clear-task-list-button"
+                    class="secondary-action"
+                    type="button"
+                >
+                    Clear list
+                </button>
+
+            </section>
+
+
+            <section
+                class="canvas-panel"
+                aria-labelledby="canvas-title"
+            >
+
+                <h2 id="canvas-title">
+                    Canvas
+                </h2>
+
+
+                <div
+                    class="drawing-toolbar"
+                    aria-label="Instrumente de desen"
+                >
+
+                    <div class="tool-group">
+                        <span class="tool-group-label">Tools</span>
+
+                        <div class="tool-buttons" role="group" aria-label="Alege instrumentul de desen">
+                            <button type="button" class="tool-button is-active" data-tool="pencil">
+                                Pencil
+                                <img src="images/ui/icons/pencil.svg" alt="" class="button-icon">
+                            </button>
+
+                            <button type="button" class="tool-button" data-tool="eraser">
+                                Eraser
+                                <img src="images/ui/icons/eraser.svg" alt="" class="button-icon">
+                            </button>
+
+                            <button type="button" class="tool-button" data-tool="line">
+                                Line
+                                <img src="images/ui/icons/line.svg" alt="" class="button-icon">
+                            </button>
+
+                            <button type="button" class="tool-button" data-tool="bucket">
+                                Bucket Fill
+                                <img src="images/ui/icons/paint-bucket.svg" alt="" class="button-icon">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tool-group">
+                        <span class="tool-group-label">Shapes</span>
+
+                        <div class="tool-buttons shape-buttons" role="group" aria-label="Alege forma">
+                            <button type="button" class="tool-button" data-tool="rectangle">Rectangle <img src="images/ui/icons/rectangle.svg" alt="" class="button-icon"></button>
+                            <button type="button" class="tool-button" data-tool="square">Square <img src="images/ui/icons/square.svg" alt="" class="button-icon"></button>
+                            <button type="button" class="tool-button" data-tool="ellipse">Ellipse <img src="images/ui/icons/ellipse.svg" alt="" class="button-icon"></button>
+                            <button type="button" class="tool-button" data-tool="circle">Circle <img src="images/ui/icons/circle.svg" alt="" class="button-icon"></button>
+                            <button type="button" class="tool-button" data-tool="triangle">Triangle <img src="images/ui/icons/triangle.svg" alt="" class="button-icon"></button>
+                            <button type="button" class="tool-button" data-tool="right-triangle">Right Triangle <img src="images/ui/icons/right-triangle.svg" alt="" class="button-icon"></button>
+                            <button type="button" class="tool-button" data-tool="diamond">Diamond <img src="images/ui/icons/diamond.svg" alt="" class="button-icon"></button>
+                            <button type="button" class="tool-button" data-tool="heart">Heart <img src="images/ui/icons/heart.svg" alt="" class="button-icon"></button>
+                            <button type="button" class="tool-button" data-tool="star">Star <img src="images/ui/icons/star.svg" alt="" class="button-icon"></button>
+                        </div>
+                    </div>
+
+                    <div class="drawing-settings">
+                        <div class="tool-group">
+                            <label for="drawing-color">Stroke color</label>
+                            <input id="drawing-color" type="color" value="#d62f5e">
+                        </div>
+
+                        <div class="tool-group">
+                            <label for="brush-size">Stroke size</label>
+                            <div class="range-control">
+                                <input id="brush-size" type="range" min="1" max="500" value="5">
+                                <output id="brush-size-value" for="brush-size">5</output>
+                            </div>
+                        </div>
+                    </div>
+
+                    <fieldset id="shape-options" class="shape-options" disabled>
+                        <legend>Shape options</legend>
+
+                        <div class="shape-fill-row">
+                            <label class="checkbox-control">
+                                <input id="shape-fill-enabled" type="checkbox">
+                                Fill shape
+                            </label>
+
+                            <label for="shape-fill-color">Fill color</label>
+                            <input id="shape-fill-color" type="color" value="#ff4076" disabled>
+                        </div>
+
+                        <div class="tool-group">
+                            <label for="shape-rotation">Rotation</label>
+                            <div class="range-control">
+                                <input id="shape-rotation" type="range" min="-180" max="180" value="0">
+                                <output id="shape-rotation-value" for="shape-rotation">0°</output>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+
+
+                <div class="canvas-wrapper">
+
+                    <canvas
+                        id="drawing-canvas"
+                        width="1500"
+                        height="1500"
+                        aria-label="Canvas pentru desen"
+                    >
+                        Browserul tău nu suportă elementul canvas.
+                    </canvas>
+
+                </div>
+
+
+                <div class="canvas-actions">
+
+                    <button
+                        id="undo-button"
+                        type="button"
+                    >
+                        Undo
+        
+                        <img
+                             src="images/ui/icons/undo.svg"
+                            alt=""
+                            class="button-icon"
+                        >
+                    </button>
+
+                    <button
+                        id="clear-canvas-button"
+                        type="button"
+                    >
+                        Clear canvas
+        
+                        <img
+                             src="images/ui/icons/trash.svg"
+                            alt=""
+                            class="button-icon"
+                        >
+                    </button>
+
+                    <button
+                        id="save-canvas-button"
+                        type="button"
+                    >
+                        Save PNG
+        
+                        <img
+                             src="images/ui/icons/download.svg"
+                            alt=""
+                            class="button-icon"
+                        >
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2026 MGpop</p>
+            <p>An MGpop production.</p>
+
+            <p class="footer-tagline">
+                For the aesthete inside you.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/drawing-helper.js"></script>
+
+</body>
+
+</html>

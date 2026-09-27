@@ -1,0 +1,613 @@
+/* ==========================================================
+   DRAWING PLANNER PAGE
+   ========================================================== */
+
+.drawing-page {
+    padding:
+        36px
+        3%
+        48px;
+}
+
+
+.drawing-page-header {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 32px;
+}
+
+.drawing-page-header p {
+    margin: 0;
+    max-width: none;
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+
+.drawing-page-header h1 {
+    margin:
+        0
+        0
+        12px;
+
+    font-size: clamp(
+        1.8rem,
+        2.8vw,
+        2.7rem
+    );
+}
+
+
+/* ==========================================================
+   MAIN LAYOUT
+   ========================================================== */
+
+.drawing-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 0.8fr)
+        minmax(0, 1.7fr);
+
+    gap: 28px;
+
+    align-items: start;
+}
+
+
+.planner-panel,
+.canvas-panel {
+    min-width: 0;
+
+    padding: 22px;
+
+    border:
+        2px solid
+        var(--color-burgundy);
+
+    background-color: color-mix(
+        in srgb,
+        var(--color-deep-pink) 40%,
+        var(--color-cream)
+    );
+}
+
+
+.planner-panel h2,
+.canvas-panel h2 {
+    margin:
+        0
+        0
+        20px;
+
+    font-size: 1.6rem;
+}
+
+
+/* ==========================================================
+   PRESET CONTROLS
+   ========================================================== */
+
+.preset-controls {
+    display: grid;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+}
+
+
+.preset-controls label,
+.tool-group label,
+.tool-group-label {
+    font-weight: 700;
+}
+
+
+.preset-controls select,
+.add-task-form input {
+    width: 100%;
+
+    min-height: 42px;
+
+    padding:
+        8px
+        10px;
+
+    border:
+        2px solid
+        var(--color-burgundy);
+
+    background-color: var(--color-cream);
+    color: var(--color-wine);
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.preset-controls select {
+    min-height: 46px;
+    padding: 10px 14px;
+    border-radius: 0;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.preset-controls select:focus-visible,
+.add-task-form input:focus-visible {
+    outline: 2px solid var(--color-rose-blush);
+    outline-offset: 2px;
+}
+
+
+
+.preset-controls button,
+.add-task-form button,
+.secondary-action,
+.tool-button,
+.canvas-actions button {
+    min-height: 40px;
+
+    padding:
+        8px
+        12px;
+
+    border:
+        2px solid
+        var(--color-burgundy);
+
+    background-color: var(--color-dusty-rose);
+    color: var(--color-burgundy);
+
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.tool-button,
+.canvas-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+
+.button-icon {
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+}
+
+
+.preset-controls button:hover,
+.preset-controls button:focus-visible,
+.add-task-form button:hover,
+.add-task-form button:focus-visible,
+.secondary-action:hover,
+.secondary-action:focus-visible,
+.tool-button:hover,
+.tool-button:focus-visible,
+.canvas-actions button:hover,
+.canvas-actions button:focus-visible {
+    background-color: var(--color-watermelon-pink);
+}
+
+
+/* ==========================================================
+   TASK LIST
+   ========================================================== */
+
+.task-list {
+    display: grid;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+
+.task-item {
+    display: grid;
+
+    grid-template-columns:
+        auto
+        1fr
+        auto;
+
+    gap: 10px;
+
+    align-items: center;
+
+    min-height: 40px;
+
+    padding:
+        8px
+        10px;
+
+    border:
+        2px solid
+        var(--color-burgundy);
+
+    background-color: var(--color-cream);
+}
+
+
+.task-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+
+    accent-color: var(--color-raspberry);
+}
+
+
+.task-item.is-complete .task-text {
+    opacity: 0.65;
+
+    text-decoration: line-through;
+}
+
+
+.task-delete-button {
+    border: 0;
+
+    background: transparent;
+    color: var(--color-wine);
+
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.task-delete-button:hover,
+.task-delete-button:focus-visible {
+    color: var(--color-raspberry);
+}
+
+
+.add-task-form {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+}
+
+
+.secondary-action {
+    width: 100%;
+}
+
+
+/* ==========================================================
+   DRAWING TOOLBAR
+   ========================================================== */
+
+.drawing-toolbar {
+    display: grid;
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+.tool-group {
+    display: grid;
+
+    gap: 8px;
+}
+
+
+.tool-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.tool-button.is-active {
+    background-color: var(--color-watermelon-pink);
+}
+
+
+#drawing-color {
+    width: 54px;
+    height: 38px;
+
+    padding: 0;
+
+    border:
+        2px solid
+        var(--color-burgundy);
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+#brush-size,
+#shape-rotation {
+    width: min(
+        100%,
+        320px
+    );
+
+    accent-color: var(--color-raspberry);
+}
+
+
+#brush-size-value,
+#shape-rotation-value {
+    min-width: 48px;
+
+    font-weight: 700;
+}
+
+
+.drawing-settings {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
+}
+
+
+.range-control {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.range-control input[type="range"] {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.shape-options {
+    display: grid;
+
+    gap: 16px;
+
+    margin: 0;
+    padding: 16px;
+
+    border:
+        2px solid
+        var(--color-burgundy);
+}
+
+
+.shape-options legend {
+    padding:
+        0
+        6px;
+
+    font-weight: 700;
+}
+
+
+.shape-options:disabled {
+    opacity: 0.55;
+}
+
+
+.shape-fill-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+.checkbox-control {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.checkbox-control input {
+    width: 18px;
+    height: 18px;
+
+    accent-color: var(--color-raspberry);
+}
+
+
+#shape-fill-color {
+    width: 54px;
+    height: 38px;
+
+    padding: 0;
+
+    border:
+        2px solid
+        var(--color-burgundy);
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+#shape-fill-color:disabled {
+    cursor: not-allowed;
+}
+
+#drawing-canvas.bucket-active {
+    cursor: crosshair;
+}
+
+/* ==========================================================
+   CANVAS
+   ========================================================== */
+
+.canvas-wrapper {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border:
+        3px solid
+        var(--color-burgundy);
+
+    background-color: white;
+}
+
+
+#drawing-canvas {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+
+    touch-action: none;
+}
+
+
+.canvas-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 14px;
+}
+
+
+.canvas-actions button {
+    flex:
+        1
+        1
+        150px;
+}
+
+
+/* ==========================================================
+   ACCESSIBILITY
+   ========================================================== */
+
+.visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(
+        0,
+        0,
+        0,
+        0
+    );
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+
+/* ==========================================================
+   TABLET / MOBILE
+   ========================================================== */
+
+@media
+    (max-width: 700px) {
+
+    .drawing-page {
+        padding:
+            28px
+            20px
+            36px;
+    }
+
+
+    .drawing-page-header {
+        margin-bottom: 24px;
+    }
+
+
+    .drawing-layout {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+
+    .planner-panel,
+    .canvas-panel {
+        padding: 18px;
+    }
+
+
+    .tool-buttons {
+        display: grid;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+
+    .drawing-settings {
+        grid-template-columns: 1fr;
+    }
+
+
+    .shape-fill-row {
+        align-items: flex-start;
+    }
+
+
+    .tool-button {
+        width: 100%;
+    }
+
+
+    .canvas-actions {
+        display: grid;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .canvas-actions button {
+        width: 100%;
+    }
+}

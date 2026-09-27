@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Book$$crape™ is a desktop application for exploring and scraping book data from Books to Scrape."
+    >
+
+    <title>Book$$crape™ | FunArt™</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/booksscrape/favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/booksscrape.css"
+    >
+</head>
+
+<body>
+
+    <header class="booksscrape-header">
+
+        <canvas
+            class="booksscrape-header-animation"
+            aria-hidden="true"
+        ></canvas>
+
+        <h1>Book$$crape™</h1>
+
+    </header>
+
+    <nav class="booksscrape-nav" aria-label="Book$$crape navigation">
+        <a
+            class="booksscrape-nav-link booksscrape-back-link"
+            href="index.html"
+        >
+            Back to FunArt
+        </a>
+
+        <a
+            class="booksscrape-nav-link booksscrape-download-link"
+            href="downloads/BookScrape-v1.0.zip"
+            download
+        >
+            Download v1.0
+        </a>
+    </nav>
+
+    <main class="booksscrape-main">
+
+        <div class="booksscrape-content">
+
+            <section class="booksscrape-text booksscrape-about">
+                <h2>Despre Book$$crape</h2>
+
+                <p>
+                    Book$$crape este o mică aplicație desktop creată pentru
+                    explorarea datelor despre cărți prin web scraping.
+                    Combină o interfață cu aspect retro cu funcții practice
+                    pentru afișarea cărților, efectuarea calculelor,
+                    verificarea stocului și obținerea recomandărilor.
+                </p>
+
+                <p class="booksscrape-tagline">
+                    ~ "Scraping books since '99."
+                </p>
+            </section>
+
+            <figure class="booksscrape-media booksscrape-media-main">
+                <img
+                    src="images/booksscrape/main_page.png"
+                    alt="Pagina principală a aplicației Book$$crape"
+                >
+            </figure>
+
+            <section class="booksscrape-text booksscrape-source">
+                <h2>De unde provin cărțile?</h2>
+
+                <p>
+                    Book$$crape folosește ca sursă de date site-ul demonstrativ
+                    <a
+                        class="booksscrape-source-link"
+                        href="https://books.toscrape.com/index.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Books to Scrape
+                    </a>.
+                    Site-ul nu aparține MGpop sau Book$$crape.
+                </p>
+            </section>
+
+            <figure class="booksscrape-media booksscrape-media-source">
+                <img
+                    src="images/booksscrape/books_to_scrape.png"
+                    alt="Site-ul Books to Scrape, folosit ca sursă de date"
+                >
+
+                <figcaption>
+                    Sursa datelor:
+                    <a
+                        class="booksscrape-data-link"
+                        href="https://books.toscrape.com/index.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        books.toscrape.com
+                    </a>
+                </figcaption>
+            </figure>
+
+            <section class="booksscrape-text booksscrape-books">
+                <h2>Afișarea cărților</h2>
+
+                <p>
+                    Explorează cărțile din categoriile selectate, apoi deschide
+                    pagina unei cărți pentru a vedea prețul, evaluarea,
+                    descrierea și celelalte detalii disponibile.
+                </p>
+            </section>
+
+            <figure class="booksscrape-media booksscrape-media-books">
+                <img
+                    src="images/booksscrape/carti.png"
+                    alt="Lista cărților afișate în Book$$crape"
+                >
+            </figure>
+
+            <figure class="booksscrape-media booksscrape-media-book">
+                <img
+                    src="images/booksscrape/carte.png"
+                    alt="Pagina cu detaliile unei cărți în Book$$crape"
+                >
+            </figure>
+
+            <section class="booksscrape-text booksscrape-calculations">
+                <h2>Calcule pe categorii</h2>
+
+                <p>
+                    Procesează una sau mai multe categorii și compară
+                    statistici despre prețuri, inclusiv sumele totale și
+                    prețurile medii, însoțite de o reprezentare grafică
+                    a rezultatelor.
+                </p>
+            </section>
+
+            <figure class="booksscrape-media booksscrape-media-calculations">
+                <img
+                    src="images/booksscrape/calcule.png"
+                    alt="Calculele pe categorii și graficul rezultatelor"
+                >
+            </figure>
+
+            <section class="booksscrape-text booksscrape-stock">
+                <h2>Verificarea stocului</h2>
+
+                <p>
+                    Verifică informațiile despre disponibilitatea cărților
+                    din categoriile selectate, așa cum sunt prezentate
+                    pe site-ul sursă.
+                </p>
+            </section>
+
+            <figure class="booksscrape-media booksscrape-media-stock">
+                <img
+                    src="images/booksscrape/stoc.png"
+                    alt="Rezultatele verificării stocului în Book$$crape"
+                >
+            </figure>
+
+            <section class="booksscrape-text booksscrape-recommendations">
+                <h2>Recomandă-mi o carte</h2>
+
+                <p>
+                    Cere-i aplicației Book$$crape o recomandare și las-o
+                    să aleagă o carte dintre datele colectate.
+                </p>
+            </section>
+
+            <figure class="booksscrape-media booksscrape-media-recommendations">
+                <img
+                    src="images/booksscrape/recomandari.png"
+                    alt="Pagina de recomandări de cărți din Book$$crape"
+                >
+            </figure>
+
+            <section class="booksscrape-text booksscrape-requirements">
+                <h2>Cerințe de sistem</h2>
+
+                <ul>
+                    <li>Windows</li>
+                    <li>Google Chrome</li>
+                    <li>Conexiune la internet</li>
+                </ul>
+
+                <p>
+                    Python, Selenium și celelalte dependențe Python nu trebuie
+                    instalate separat.
+                </p>
+            </section>
+
+            <section class="booksscrape-text booksscrape-release">
+                <h2>Versiunea actuală</h2>
+
+                <p>
+                    <strong>Book$$crape™ v1.0</strong>
+                </p>
+
+                <p>
+                    Descarcă arhiva ZIP, extrage fișierele și pornește
+                    aplicația pentru Windows.
+                </p>
+
+                <p>
+                    Te interesează codul sursă? Vizitează repository-ul
+                    <a
+                        class="booksscrape-github-link"
+                        href="https://github.com/MGpop/BookSScrape"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Book$$crape
+                    </a>
+                    de pe GitHub. Codul sursă este disponibil sub licența Apache 2.0.
+                </p>
+            </section>
+
+        </div>
+
+    </main>
+
+    <dialog class="booksscrape-lightbox">
+        <img src="" alt="">
+    </dialog>
+
+    <footer class="booksscrape-footer">
+        <p>© 2026 MGpop</p>
+
+        <p class="booksscrape-footer-note">
+            Made for fun.<br>
+            Please don't take this too seriously.
+        </p>
+    </footer>
+
+    <script src="js/booksscrape.js"></script>
+</body>
+
+</html>

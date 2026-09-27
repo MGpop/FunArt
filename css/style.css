@@ -1,0 +1,380 @@
+/* ==========================================================
+   LOCAL FONTS
+   ========================================================== */
+
+@font-face {
+    font-family: "Nunito";
+    src: url("../fonts/Nunito/Nunito-VariableFont_wght.ttf")
+        format("truetype");
+    font-style: normal;
+    font-weight: 200 1000;
+}
+
+
+@font-face {
+    font-family: "Nunito";
+    src: url("../fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf")
+        format("truetype");
+    font-style: italic;
+    font-weight: 200 1000;
+}
+
+
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   COLOR PALETTE
+   ========================================================== */
+
+:root {
+    --color-cream: #fbefee;
+    --color-berry: #99213f;
+    --color-wine: #5f1429;
+    --color-hot-pink: #ff4076;
+    --color-pastel-pink: #ffbbc3;
+    --color-raspberry: #dc4a73;
+    --color-burgundy: #7e1c38;
+    --color-deep-pink: #d62f5e;
+    --color-bubblegum-pink: #fc5b89;
+    --color-dusty-rose: #e6849d;
+    --color-watermelon-pink: #ff799b;
+    --color-rose-blush: #eca2b4;
+    --color-muted-raspberry: #d1597b;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
+    font-weight: 400;
+
+    background-color: var(--color-pastel-pink);
+    color: var(--color-wine);
+}
+
+
+
+/* ==========================================================
+   TYPOGRAPHY
+   ========================================================== */
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+}
+
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+strong {
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.site-header {
+    display: flex;
+    align-items: center;
+
+    padding:
+        6px
+        3%;
+
+    background-color: var(--color-hot-pink);
+}
+
+
+.site-logo {
+    display: block;
+
+    width: auto;
+    height: 100px;
+
+    max-width: 100%;
+
+    user-select: none;
+
+filter:
+    drop-shadow(0 0 4px rgb(255, 177, 177))
+    drop-shadow(0 0 8px rgba(255, 198, 198, 0.85))
+    drop-shadow(0 0 15px rgba(255, 194, 211, 0.55));
+}
+
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
+
+.main-nav {
+    position: relative;
+
+    z-index: 1000;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    background-color: var(--color-burgundy);
+}
+
+
+.nav-item {
+    position: relative;
+    display: flex;
+}
+
+
+.nav-button {
+    width: 100%;
+
+    min-height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        8px
+        12px;
+
+    border: 3px solid var(--color-burgundy);
+
+    background-color: var(--color-deep-pink);
+    color: var(--color-burgundy);
+
+    font: inherit;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+.nav-button:hover,
+.nav-button:focus-visible {
+    background-color: var(--color-bubblegum-pink);
+}
+
+
+.nav-button:focus-visible {
+    outline: 2px solid var(--color-cream);
+    outline-offset: -5px;
+}
+
+
+/* ==========================================================
+   HOME DROPDOWN
+   ========================================================== */
+
+.home-dropdown {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    z-index: 2000;
+
+    width: 100%;
+
+    display: none;
+
+    background-color: var(--color-burgundy);
+}
+
+
+.home-dropdown a {
+    display: block;
+
+    padding:
+        10px
+        16px;
+
+    border:
+        3px solid
+        var(--color-burgundy);
+
+    background-color: var(--color-deep-pink);
+    color: var(--color-burgundy);
+
+    font-weight: 700;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.home-dropdown a:hover,
+.home-dropdown a:focus-visible {
+    background-color: var(--color-bubblegum-pink);
+}
+
+
+.home-dropdown a:focus-visible {
+    outline: 2px solid var(--color-cream);
+    outline-offset: -5px;
+}
+
+
+/* ==========================================================
+   DESKTOP HOVER
+   ========================================================== */
+
+@media
+    (hover: hover)
+    and
+    (pointer: fine) {
+
+    .home-menu:hover
+    .home-dropdown {
+        display: block;
+    }
+}
+
+
+/* ==========================================================
+   DROPDOWN DESCHIS PRIN JAVASCRIPT
+   ========================================================== */
+
+.home-menu.is-open
+.home-dropdown {
+    display: block;
+}
+
+
+/* ==========================================================
+   PAGE CONTENT
+   ========================================================== */
+
+.page-content {
+    position: relative;
+
+    z-index: 1;
+
+    min-height:
+        calc(
+            100vh
+            - 141px
+        );
+
+    padding: 30px;
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+.site-footer {
+    padding:
+        28px
+        3%;
+
+    background-color: var(--color-deep-pink);
+    color: var(--color-wine);
+
+    border-top:
+        3px
+        solid
+        var(--color-burgundy);
+}
+
+
+.footer-content p {
+    margin: 0;
+}
+
+
+.footer-content p:first-child {
+    font-weight: 700;
+}
+
+
+.footer-content p:nth-child(2) {
+    margin-top: 4px;
+
+    font-size: 0.9rem;
+}
+
+
+.footer-content .footer-tagline {
+    margin-top: 14px;
+
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+
+/* ==========================================================
+   TABLET / MOBILE
+   ========================================================== */
+
+@media
+    (max-width: 700px) {
+
+    .site-header {
+        padding:
+            8px
+            20px;
+    }
+
+
+    .site-logo {
+        height: 65px;
+    }
+
+
+    .nav-button {
+        min-height: 42px;
+
+        padding:
+            8px
+            6px;
+
+        font-size: 0.85rem;
+    }
+
+
+    .page-content {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Match the Aesthetic | FunArt™</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/ui/favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/aesthetic-game.css"
+    >
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="brand">
+
+            <img
+                src="images/ui/logo.png"
+                alt="FunArt"
+                class="site-logo"
+            >
+
+        </div>
+
+    </header>
+
+
+    <nav class="main-nav">
+
+        <div class="nav-item home-menu">
+
+            <button
+                class="nav-button home-menu-button"
+                type="button"
+                aria-expanded="false"
+            >
+                Home
+            </button>
+
+
+            <div class="home-dropdown">
+
+                <a href="index.html#home">
+                    Acasă
+                </a>
+
+                <a href="index.html#about">
+                    Despre mine
+                </a>
+
+                <a href="index.html#projects">
+                    Proiecte
+                </a>
+
+                <a href="index.html#contact">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="nav-button"
+            href="match-the-aesthetic.html"
+            aria-current="page"
+        >
+            Match the Aesthetic
+        </a>
+
+
+        <a
+            class="nav-button"
+            href="drawing-helper.html"
+        >
+            Drawing Planner
+        </a>
+
+    </nav>
+
+
+    <main class="aesthetic-page">
+
+        <section class="game-intro">
+
+            <h1>Match the Aesthetic</h1>
+
+            <p>
+                Testează-ți ochiul pentru stil și încearcă să alegi imaginea
+                care se potrivește cel mai bine aesthetic-ului cerut.
+            </p>
+
+            <p>
+                Jocul are cinci runde: exterior, interior, object, outfit și
+                color palette. În fiecare rundă vei vedea nouă imagini și poți
+                selecta o singură variantă înainte de a continua.
+            </p>
+
+            <p>
+                Un click selectează o imagine, iar un al doilea click pe aceeași
+                imagine o deselectează. Dacă ții apăsat pe o imagine, aceasta
+                se va deschide într-un preview mai mare până când eliberezi
+                click-ul sau atingerea.
+            </p>
+
+            <p>
+                Poți activa Timed Mode înainte de începerea jocului. Pauzele
+                dintre runde nu sunt incluse în timp.
+            </p>
+
+        </section>
+
+
+        <section class="game-layout">
+
+            <aside class="game-sidebar">
+
+                <section class="game-panel target-panel">
+
+                    <p class="panel-label">
+                        Aesthetic
+                    </p>
+
+                    <h2
+                        id="target-aesthetic"
+                        class="target-aesthetic-name"
+                    >
+                        —
+                    </h2>
+
+                    <button
+                        id="hint-button"
+                        class="secondary-button"
+                        type="button"
+                        disabled
+                    >
+                        Hint
+                    </button>
+
+                </section>
+
+
+                <section class="game-panel score-panel">
+
+                    <div class="score-row">
+                        <span>Score</span>
+
+                        <strong id="score-value">
+                            0 / 100
+                        </strong>
+                    </div>
+
+
+                    <div class="timed-mode-row">
+
+                        <label for="timed-mode-toggle">
+                            Timed Mode
+                        </label>
+
+                        <button
+                            id="timed-mode-toggle"
+                            class="toggle-button"
+                            type="button"
+                            role="switch"
+                            aria-checked="false"
+                        >
+                            Off
+                        </button>
+
+                    </div>
+
+
+                    <div class="score-row">
+                        <span>Timer</span>
+
+                        <strong id="timer-value">
+                            --:--
+                        </strong>
+                    </div>
+
+
+                    <div class="score-row">
+                        <span>Timed Score</span>
+
+                        <strong id="timed-score-value">
+                            —
+                        </strong>
+                    </div>
+
+                </section>
+
+            </aside>
+
+
+            <section class="game-area">
+
+                <div
+                    id="game-board-wrapper"
+                    class="game-board-wrapper"
+                >
+
+                    <div
+                        id="image-grid"
+                        class="aesthetic-grid"
+                        aria-label="Aesthetic image choices"
+                    >
+
+                        <button
+                            class="aesthetic-option"
+                            type="button"
+                            data-slot="0"
+                            aria-label="Image option 1"
+                            disabled
+                        >
+                            <img src="" alt="">
+                        </button>
+
+                        <button
+                            class="aesthetic-option"
+                            type="button"
+                            data-slot="1"
+                            aria-label="Image option 2"
+                            disabled
+                        >
+                            <img src="" alt="">
+                        </button>
+
+                        <button
+                            class="aesthetic-option"
+                            type="button"
+                            data-slot="2"
+                            aria-label="Image option 3"
+                            disabled
+                        >
+                            <img src="" alt="">
+                        </button>
+
+                        <button
+                            class="aesthetic-option"
+                            type="button"
+                            data-slot="3"
+                            aria-label="Image option 4"
+                            disabled
+                        >
+                            <img src="" alt="">
+                        </button>
+
+                        <button
+                            class="aesthetic-option"
+                            type="button"
+                            data-slot="4"
+                            aria-label="Image option 5"
+                            disabled
+                        >
+                            <img src="" alt="">
+                        </button>
+
+                        <button
+                            class="aesthetic-option"
+                            type="button"
+                            data-slot="5"
+                            aria-label="Image option 6"
+                            disabled
+                        >
+                            <img src="" alt="">
+                        </button>
+
+                        <button
+                            class="aesthetic-option"
+                            type="button"
+                            data-slot="6"
+                            aria-label="Image option 7"
+                            disabled
+                        >
+                            <img src="" alt="">
+                        </button>
+
+                        <button
+                            class="aesthetic-option"
+                            type="button"
+                            data-slot="7"
+                            aria-label="Image option 8"
+                            disabled
+                        >
+                            <img src="" alt="">
+                        </button>
+
+                        <button
+                            class="aesthetic-option"
+                            type="button"
+                            data-slot="8"
+                            aria-label="Image option 9"
+                            disabled
+                        >
+                            <img src="" alt="">
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="start-overlay"
+                        class="game-overlay start-overlay"
+                    >
+
+                        <div class="overlay-content">
+
+                            <h2>Ready?</h2>
+
+                            <p>
+                                Aesthetic-ul și imaginile vor fi randomizate
+                                pentru fiecare joc nou.
+                            </p>
+
+                            <button
+                                id="start-game-button"
+                                class="primary-button"
+                                type="button"
+                            >
+                                Start
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="round-overlay"
+                        class="game-overlay round-overlay"
+                        hidden
+                    >
+
+                        <div class="overlay-content">
+
+                            <p
+                                id="round-number"
+                                class="round-number"
+                            >
+                                Round 1 / 5
+                            </p>
+
+                            <h2 id="round-category">
+                                Exterior
+                            </h2>
+
+                            <p>Get ready...</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="result-overlay"
+                        class="game-overlay result-overlay"
+                        hidden
+                    >
+
+                        <div class="overlay-content result-overlay-content">
+
+                            <p class="result-kicker">
+                                Final Score
+                            </p>
+
+                            <strong
+                                id="overlay-score-value"
+                                class="overlay-score-value"
+                            >
+                                0 / 100
+                            </strong>
+
+                            <h2 id="score-message-title">
+                                —
+                            </h2>
+
+                            <p id="score-message-text"></p>
+
+
+                            <div
+                                id="speed-message-block"
+                                class="speed-message-block"
+                                hidden
+                            >
+
+                                <div class="result-timed-values">
+
+                                    <span>
+                                        Timed Score
+                                        <strong id="overlay-timed-score-value">—</strong>
+                                    </span>
+
+                                    <span>
+                                        Time
+                                        <strong id="overlay-time-value">—</strong>
+                                    </span>
+
+                                </div>
+
+                                <h3 id="speed-message-title">
+                                    —
+                                </h3>
+
+                                <p id="speed-message-text"></p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="game-actions">
+
+                    <button
+                        id="next-button"
+                        class="primary-button"
+                        type="button"
+                        disabled
+                    >
+                        Next
+                    </button>
+
+                    <button
+                        id="new-game-button"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        New Game
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <section
+            id="final-results"
+            class="final-results"
+            hidden
+        >
+
+            <h2>Final Score</h2>
+
+            <div class="final-score-grid">
+
+                <div class="final-score-card">
+                    <span>Score</span>
+                    <strong id="final-score-value">0 / 100</strong>
+                </div>
+
+                <div class="final-score-card">
+                    <span>Timed Score</span>
+                    <strong id="final-timed-score-value">—</strong>
+                </div>
+
+                <div class="final-score-card">
+                    <span>Time</span>
+                    <strong id="final-time-value">—</strong>
+                </div>
+
+            </div>
+
+
+            <div class="final-actions">
+
+                <button
+                    id="save-score-button"
+                    class="primary-button"
+                    type="button"
+                >
+                    Save Score
+                </button>
+
+                <button
+                    id="results-new-game-button"
+                    class="secondary-button"
+                    type="button"
+                >
+                    New Game
+                </button>
+
+            </div>
+
+
+            <details
+                id="saved-scores-section"
+                class="saved-scores"
+            >
+
+                <summary>
+                    Saved Scores
+                </summary>
+
+
+                <div class="saved-scores-toolbar">
+
+                    <button
+                        id="download-scores-button"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Download Scores
+                    </button>
+
+                    <label
+                        for="import-scores-input"
+                        class="secondary-button import-label"
+                    >
+                        Import Scores
+                    </label>
+
+                    <input
+                        id="import-scores-input"
+                        type="file"
+                        accept=".json,application/json"
+                        hidden
+                    >
+
+                    <button
+                        id="clear-scores-button"
+                        class="secondary-button danger-button"
+                        type="button"
+                    >
+                        Clear Saved Scores
+                    </button>
+
+                </div>
+
+
+                <div class="score-table-wrapper">
+
+                    <table class="score-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th scope="col">
+
+                                    <button
+                                        class="sort-button"
+                                        type="button"
+                                        data-sort="username"
+                                    >
+                                        Username
+                                        <span
+                                            class="sort-indicator"
+                                            aria-hidden="true"
+                                        ></span>
+                                    </button>
+
+                                </th>
+
+                                <th scope="col">
+
+                                    <button
+                                        class="sort-button"
+                                        type="button"
+                                        data-sort="score"
+                                    >
+                                        Score
+                                        <span
+                                            class="sort-indicator"
+                                            aria-hidden="true"
+                                        ></span>
+                                    </button>
+
+                                </th>
+
+                                <th scope="col">
+
+                                    <button
+                                        class="sort-button"
+                                        type="button"
+                                        data-sort="timedScore"
+                                    >
+                                        Timed Score
+                                        <span
+                                            class="sort-indicator"
+                                            aria-hidden="true"
+                                        ></span>
+                                    </button>
+
+                                </th>
+
+                                <th scope="col">
+
+                                    <button
+                                        class="sort-button"
+                                        type="button"
+                                        data-sort="date"
+                                    >
+                                        Date
+                                        <span
+                                            class="sort-indicator"
+                                            aria-hidden="true"
+                                        ></span>
+                                    </button>
+
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="score-table-body">
+
+                            <tr class="empty-score-row">
+
+                                <td colspan="4">
+                                    No saved scores yet.
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </details>
+
+        </section>
+
+    </main>
+
+
+    <div
+        id="hint-modal"
+        class="modal-overlay"
+        hidden
+        aria-hidden="true"
+    >
+
+        <section
+            class="modal-window hint-modal-window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="hint-modal-title"
+        >
+
+            <button
+                id="close-hint-button"
+                class="modal-close-button"
+                type="button"
+                aria-label="Close hint"
+            >
+                ×
+            </button>
+
+            <h2 id="hint-modal-title">
+                Aesthetic Hint
+            </h2>
+
+            <p id="hint-description"></p>
+
+            <div class="hint-list-wrapper">
+
+                <p class="hint-list-title">
+                    Look for:
+                </p>
+
+                <ul id="hint-list"></ul>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <div
+        id="save-score-modal"
+        class="modal-overlay"
+        hidden
+        aria-hidden="true"
+    >
+
+        <section
+            class="modal-window save-score-window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="save-score-title"
+        >
+
+            <button
+                id="close-save-score-button"
+                class="modal-close-button"
+                type="button"
+                aria-label="Close save score window"
+            >
+                ×
+            </button>
+
+            <h2 id="save-score-title">
+                Save Score
+            </h2>
+
+            <label for="score-username">
+                Username
+            </label>
+
+            <input
+                id="score-username"
+                type="text"
+                maxlength="30"
+                autocomplete="nickname"
+                placeholder="Your name"
+            >
+
+            <p
+                id="save-score-error"
+                class="form-error"
+                aria-live="polite"
+            ></p>
+
+            <button
+                id="confirm-save-score-button"
+                class="primary-button"
+                type="button"
+            >
+                Save
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <div
+        id="import-scores-modal"
+        class="modal-overlay"
+        hidden
+        aria-hidden="true"
+    >
+
+        <section
+            class="modal-window import-score-window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="import-scores-title"
+        >
+
+            <button
+                id="close-import-scores-button"
+                class="modal-close-button"
+                type="button"
+                aria-label="Close import window"
+            >
+                ×
+            </button>
+
+            <h2 id="import-scores-title">
+                Import Scores
+            </h2>
+
+            <p>
+                Cum vrei să importăm scorurile din fișier?
+            </p>
+
+            <div class="modal-actions">
+
+                <button
+                    id="merge-scores-button"
+                    class="primary-button"
+                    type="button"
+                >
+                    Merge
+                </button>
+
+                <button
+                    id="replace-scores-button"
+                    class="secondary-button danger-button"
+                    type="button"
+                >
+                    Replace
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <div
+        id="image-preview"
+        class="image-preview"
+        hidden
+        aria-hidden="true"
+    >
+
+        <img
+            id="preview-image"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+
+    <div
+        id="cursor-message"
+        class="cursor-message"
+        role="status"
+        aria-live="polite"
+        hidden
+    ></div>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-content">
+
+            <p class="footer-owner">
+                © 2026 MGpop
+            </p>
+
+            <p class="footer-production">
+                An MGpop production.
+            </p>
+
+            <p class="footer-tagline">
+                For the aesthete inside you.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/main.js"></script>
+
+    <script src="data/aesthetic-info.js"></script>
+    <script src="data/aesthetic-scores.js"></script>
+    <script src="data/aesthetic-messages.js"></script>
+
+    <script src="js/aesthetic-game-state.js"></script>
+    <script src="js/aesthetic-game.js"></script>
+
+</body>
+
+</html>
